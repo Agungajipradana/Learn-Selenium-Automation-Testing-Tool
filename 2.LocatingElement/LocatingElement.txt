@@ -1,0 +1,35 @@
+"Locating element" pada Selenium JavaScript mengacu pada proses menemukan dan mengidentifikasi elemen HTML di dalam halaman web yang akan diinteraksi oleh skrip Selenium menggunakan bahasa pemrograman JavaScript. Dalam Selenium, "locators" atau metode locating element digunakan untuk menemukan elemen dengan cara mengacu pada atribut atau karakteristik unik dari elemen tersebut.
+
+Berikut adalah beberapa metode yang umum digunakan untuk locating element dalam Selenium JavaScript:
+
+1.By ID:
+Menggunakan ID elemen HTML untuk menemukan elemen.
+
+Contoh:
+    const element = await driver.findElement(By.id('username'));
+
+2.By Name:
+Menggunakan nama elemen HTML untuk menemukan elemen.
+
+Contoh:
+    const element = await driver.findElement(By.name('password'));
+
+3.By XPath:
+Menggunakan XPath untuk menentukan lokasi elemen berdasarkan jalur atau hierarki XML.
+
+Contoh:
+    const element = await driver.findElement(By.xpath("//input[@id='loginButton']"));
+
+4.By CSS Selector:
+Menggunakan selektor CSS untuk menemukan elemen.
+
+Contoh:
+    const element = await driver.findElement(By.css('button.submit-btn'));
+
+5.By Class Name:
+Menggunakan nama kelas elemen HTML untuk menemukan elemen.
+
+Contoh:
+    const element = await driver.findElement(By.className('login-form'));
+
+Dengan locating element, Anda dapat menentukan cara Selenium harus menemukan dan berinteraksi dengan elemen tertentu di halaman web. Ini memungkinkan otomatisasi tindakan seperti mengisi formulir, mengklik tombol, atau mengekstrak informasi dari halaman web menggunakan JavaScript.
