@@ -1,0 +1,31 @@
+Window management pada Selenium menggunakan JavaScript mencakup serangkaian fungsi yang memungkinkan Anda mengontrol ukuran dan posisi jendela browser selama eksekusi skrip pengujian. Berikut adalah penjelasan untuk beberapa fungsi utama dalam window management:
+
+1. Get Window Size (Mendapatkan Ukuran Jendela):
+Untuk mendapatkan ukuran jendela browser yang sedang aktif, Anda dapat menggunakan fungsi getWindowRect() pada objek webdriver.
+Fungsi ini mengembalikan objek yang berisi informasi tentang lebar (width) dan tinggi (height) jendela.
+
+Contoh:
+    // Mendapatkan ukuran jendela aktif
+    const windowSize = await driver.manage().window().getRect();
+    console.log('Ukuran Jendela: ', windowSize);
+
+
+2. Set Window Size (Mengatur Ukuran Jendela):
+Untuk mengatur ukuran jendela browser, Anda dapat menggunakan fungsi setRect() pada objek webdriver. Anda perlu menyediakan nilai lebar (width) dan tinggi (height) baru. Dengan fungsi ini, Anda dapat menyesuaikan ukuran jendela sesuai kebutuhan pengujian.
+
+Contoh:
+    // Mengatur ukuran jendela browser menjadi 1200x800
+    await driver.manage().window().setRect({ width: 1200, height: 800 });
+
+
+3. Get Window Position (Mendapatkan Posisi Jendela):
+Untuk mendapatkan posisi jendela browser di layar, Anda dapat menggunakan fungsi getRect() pada objek webdriver.
+Fungsi ini mengembalikan objek yang berisi informasi tentang koordinat x (x) dan koordinat y (y) jendela.
+
+Contoh:
+    // Mendapatkan posisi jendela aktif
+    const windowPosition = await driver.manage().window().getRect();
+    console.log('Posisi Jendela: ', windowPosition);
+
+
+Dengan menggunakan fungsi-fungsi ini, Anda dapat mengendalikan tata letak jendela browser selama pengujian, yang dapat sangat bermanfaat untuk memastikan bahwa elemen-elemen pada halaman web tampil dengan benar dan sesuai dengan skenario pengujian Anda.
