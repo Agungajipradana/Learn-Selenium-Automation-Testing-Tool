@@ -1,0 +1,89 @@
+Ekstraksi data pada Selenium menggunakan JavaScript merujuk pada proses pengambilan informasi atau data tertentu dari elemen atau halaman web yang diakses dan dimanipulasi menggunakan Selenium WebDriver. Ini umumnya melibatkan metode Selenium WebDriver untuk menemukan elemen, mengambil propertinya, dan kemudian menggunakan nilai tersebut sesuai kebutuhan.
+
+Berikut adalah beberapa metode umum yang digunakan untuk mengekstrak data menggunakan Selenium WebDriver dan JavaScript:
+
+1. getText(): Metode ini digunakan untuk mengambil teks yang terlihat di elemen. 
+
+Contoh:
+
+const { Builder, By } = require("selenium-webdriver");
+
+async function extractTextExample() {
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  try {
+    await driver.get("https://www.example.com");
+    let element = await driver.findElement(By.css("h1"));
+    let text = await element.getText();
+    console.log("Teks Elemen:", text);
+  } finally {
+    await driver.quit();
+  }
+}
+
+extractTextExample();
+
+2. getAttribute(): Metode ini digunakan untuk mengambil nilai dari atribut tertentu pada elemen. 
+
+Contoh:
+
+const { Builder, By } = require("selenium-webdriver");
+
+async function extractAttributeExample() {
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  try {
+    await driver.get("https://www.example.com");
+    let element = await driver.findElement(By.css("img"));
+    let source = await element.getAttribute("src");
+    console.log("Nilai Atribut 'src':", source);
+  } finally {
+    await driver.quit();
+  }
+}
+
+extractAttributeExample();
+
+3. getCssValue(): Metode ini digunakan untuk mengambil nilai dari properti CSS tertentu pada elemen. 
+
+Contoh:
+
+const { Builder, By } = require("selenium-webdriver");
+
+async function extractCssValueExample() {
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  try {
+    await driver.get("https://www.example.com");
+    let element = await driver.findElement(By.css("h1"));
+    let fontSize = await element.getCssValue("font-size");
+    console.log("Ukuran Font:", fontSize);
+  } finally {
+    await driver.quit();
+  }
+}
+
+extractCssValueExample();
+
+4. Eksekusi Skrip JavaScript: Anda juga dapat menggunakan executeScript untuk mengeksekusi skrip JavaScript yang mengambil atau 
+memanipulasi data di dalam halaman web. 
+
+Contoh:
+
+const { Builder } = require("selenium-webdriver");
+
+async function executeScriptExample() {
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  try {
+    await driver.get("https://www.example.com");
+    let pageTitle = await driver.executeScript("return document.title");
+    console.log("Judul Halaman:", pageTitle);
+  } finally {
+    await driver.quit();
+  }
+}
+
+executeScriptExample();
+
+Dengan menggunakan metode-metode ini, Anda dapat mengekstrak data yang dibutuhkan dari halaman web saat menjalankan skrip pengujian menggunakan Selenium WebDriver dan JavaScript.
