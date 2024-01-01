@@ -1,0 +1,31 @@
+Dalam Selenium menggunakan JavaScript, "Print Page" umumnya merujuk pada kemampuan untuk membuat salinan cetak (print) dari halaman web yang sedang ditampilkan di browser. Dalam konteks Selenium WebDriver, Anda dapat mencapai ini dengan menggunakan metode executeScript untuk memicu fungsi pencetakan dari JavaScript pada halaman web.
+
+Berikut adalah contoh sederhana untuk melakukan "Print Page" menggunakan Selenium WebDriver dan JavaScript:
+
+const { Builder } = require("selenium-webdriver");
+
+async function printPageExample() {
+  // Membuat instance WebDriver untuk browser Chrome
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  try {
+    // Membuka tab pertama dan navigasi ke situs Google
+    await driver.get("https://www.google.com");
+
+    // Eksekusi script JavaScript untuk memicu pencetakan halaman
+    await driver.executeScript("window.print();");
+
+    // Menunggu selama 5 detik (hanya sebagai contoh)
+    await driver.sleep(5000);
+  } finally {
+    // Menutup sesi browser
+    await driver.quit();
+  }
+}
+
+// Memanggil fungsi printPageExample untuk menjalankan script
+printPageExample();
+
+Dalam contoh di atas, executeScript digunakan untuk menjalankan window.print();, yang merupakan metode JavaScript bawaan untuk memicu pencetakan halaman. Namun, perlu diingat bahwa hasil cetak sebenarnya akan tergantung pada pengaturan cetak browser dan mungkin muncul kotak dialog pencetakan.
+
+Penting untuk dicatat bahwa metode ini mungkin tidak selalu berhasil tergantung pada implementasi browser dan berbagai faktor konfigurasi. Juga, perhatikan bahwa mungkin ada batasan keamanan yang mencegah pemicuan pencetakan otomatis dalam beberapa konteks browser atau situs web.

@@ -1,0 +1,32 @@
+Fungsi executeScript pada Selenium menggunakan JavaScript adalah metode yang memungkinkan eksekusi kode JavaScript di dalam konteks browser yang sedang dikelola oleh Selenium WebDriver. Dengan kata lain, Anda dapat menjalankan fragmen kode JavaScript langsung di dalam halaman web yang sedang dibuka, memberikan fleksibilitas tambahan selama eksekusi skrip pengujian.
+
+Berikut adalah contoh penggunaan executeScript:
+
+const { Builder, By } = require("selenium-webdriver");
+
+async function executeScriptExample() {
+  // Membuat instance WebDriver untuk browser Chrome
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  try {
+    // Membuka tab pertama dan navigasi ke situs Google
+    await driver.get("https://www.google.com");
+
+    // Eksekusi script JavaScript langsung pada halaman web
+    const title = await driver.executeScript("return document.title");
+    console.log("Judul Halaman:", title);
+
+    // Menunggu selama 5 detik (hanya sebagai contoh)
+    await driver.sleep(5000);
+  } finally {
+    // Menutup sesi browser
+    await driver.quit();
+  }
+}
+
+// Memanggil fungsi executeScriptExample untuk menjalankan script
+executeScriptExample();
+
+Dalam contoh di atas, executeScript digunakan untuk mengambil judul halaman saat ini dengan menjalankan kode JavaScript "return document.title". Hasil eksekusi skrip JavaScript kemudian dikembalikan ke dalam skrip pengujian sebagai nilai yang dapat digunakan lebih lanjut.
+
+Fungsi ini sangat berguna dalam beberapa skenario pengujian, seperti memanipulasi elemen pada halaman web, memeriksa status dan atribut elemen, atau bahkan mengganti perilaku halaman dengan memasukkan kode JavaScript khusus. Namun, penggunaannya sebaiknya dihindari ketika ada opsi WebDriver atau metode Selenium yang lebih langsung yang dapat memenuhi kebutuhan pengujian Anda.

@@ -1,0 +1,32 @@
+Dalam Selenium menggunakan JavaScript, takeScreenshot adalah fungsi yang memungkinkan Anda mengambil tangkapan layar (screenshot) dari halaman web yang sedang diakses saat menjalankan skrip pengujian. Tangkapan layar ini dapat membantu dalam memeriksa visualisasi halaman web, memeriksa keadaan antarmuka pengguna, dan mendokumentasikan hasil pengujian.
+
+Berikut adalah contoh penggunaan takeScreenshot dalam Selenium menggunakan JavaScript:
+
+const { Builder, By } = require("selenium-webdriver");
+
+async function takeScreenshotExample() {
+  // Membuat instance WebDriver untuk browser Chrome
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  try {
+    // Membuka tab pertama dan navigasi ke situs Google
+    await driver.get("https://www.google.com");
+
+    // Mengambil tangkapan layar dan menyimpannya dalam variabel
+    const screenshot = await driver.takeScreenshot();
+
+    // Menyimpan tangkapan layar ke file (opsional)
+    require("fs").writeFileSync("screenshot.png", screenshot, "base64");
+    console.log("Tangkapan Layar telah disimpan sebagai screenshot.png");
+  } finally {
+    // Menutup sesi browser
+    await driver.quit();
+  }
+}
+
+// Memanggil fungsi takeScreenshotExample untuk menjalankan script
+takeScreenshotExample();
+
+Dalam contoh di atas, takeScreenshot digunakan untuk mengambil tangkapan layar dari halaman Google yang dibuka, dan tangkapan layar tersebut dapat disimpan sebagai file gambar (opsional). Fungsi ini mengembalikan tangkapan layar dalam format data URI base64 yang dapat digunakan untuk keperluan pengujian atau pembuatan laporan.
+
+Penting untuk dicatat bahwa pengambilan tangkapan layar dapat membantu dalam debugging dan pemantauan visual, tetapi juga harus digunakan secara bijak agar tidak menambah overhead yang tidak perlu pada skrip pengujian.
