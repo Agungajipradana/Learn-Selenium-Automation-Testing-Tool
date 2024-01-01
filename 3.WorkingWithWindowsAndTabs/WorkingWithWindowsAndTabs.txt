@@ -1,0 +1,37 @@
+"Working with windows and tabs" pada Selenium menggunakan JavaScript adalah kemampuan untuk mengelola lebih dari satu jendela (window) atau tab di browser selama eksekusi skrip otomatis. Ini memungkinkan kita untuk berpindah antara jendela atau tab, membuka jendela baru, dan menangani beberapa jendela atau tab yang berbeda secara dinamis selama pengujian.
+
+Berikut adalah beberapa operasi umum yang dapat dilakukan saat bekerja dengan jendela dan tab menggunakan Selenium WebDriver dan JavaScript:
+
+1. Membuka Jendela Baru (New Window):
+Ini membuka jendela atau tab baru dalam sesi browser saat ini.
+
+Contoh:
+    await driver.switchTo().newWindow("tab");
+
+2. Mengambil Handles (Identifikasi Jendela atau Tab):
+Ini mengembalikan daftar semua handles (identifier) yang terkait dengan jendela atau tab yang dibuka.
+
+Contoh:
+    const handles = await driver.getAllWindowHandles();
+
+3. Beralih Antara Jendela atau Tab:
+Ini memungkinkan Anda beralih antara jendela atau tab menggunakan handle yang sesuai.
+
+Contoh:
+    await driver.switchTo().window(handle);
+
+4. Menutup Jendela atau Tab:
+Ini menutup jendela atau tab aktif. Jika Anda ingin menutup jendela tertentu, Anda perlu memastikan bahwa fokus telah dialihkan ke jendela tersebut terlebih dahulu.
+
+Contoh:
+    await driver.close();
+
+5. Keluar dari Sesuai Browser:
+Ini menutup semua jendela atau tab dan mengakhiri sesi browser.
+
+Contoh:
+    await driver.quit();
+
+
+
+
