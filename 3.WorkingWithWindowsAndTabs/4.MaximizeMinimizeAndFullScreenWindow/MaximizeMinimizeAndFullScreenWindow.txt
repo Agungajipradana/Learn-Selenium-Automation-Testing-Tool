@@ -1,0 +1,24 @@
+Dalam Selenium menggunakan JavaScript, Maximize window, Minimize window, dan Fullscreen window adalah fungsi-fungsi yang terkait dengan pengelolaan jendela browser. Berikut adalah penjelasan singkat untuk setiap fungsi:
+
+1. Maximize Window:
+Tujuan: Memaksimalkan ukuran jendela browser.
+Penjelasan: Fungsi ini digunakan untuk memaksimalkan ukuran jendela browser pada layar. Ini berguna untuk memastikan bahwa konten halaman web dapat ditampilkan dengan ukuran penuh dan dapat diuji dengan baik.
+
+Contoh Penggunaan:
+    await driver.manage().window().maximize();
+
+2. Minimize Window:
+Tujuan: Mereduksi ukuran jendela browser ke ukuran minimum.
+Penjelasan: Fungsi ini digunakan untuk mereduksi ukuran jendela browser ke ukuran minimum. Ini berguna jika Anda perlu mengurangi jendela browser agar tidak mengganggu atau untuk menguji responsivitas halaman web ketika ukuran jendela berubah.
+
+Contoh Penggunaan:
+    await driver.manage().window().minimize();
+
+3. Fullscreen Window:
+Tujuan: Mengubah jendela browser menjadi mode layar penuh.
+Penjelasan: Fungsi ini digunakan untuk mengubah jendela browser menjadi mode layar penuh. Ini berguna untuk memastikan bahwa pengujian dilakukan dalam kondisi di mana halaman web ditampilkan dalam mode layar penuh.
+
+Contoh Penggunaan:
+    await driver.manage().window().fullscreen();
+
+Semua fungsi ini adalah bagian dari window management di Selenium dan membantu mengelola ukuran dan tampilan jendela browser selama eksekusi skrip pengujian. Pilihan yang tepat tergantung pada kebutuhan pengujian dan preferensi pengguna.
