@@ -1,0 +1,52 @@
+Dalam Selenium WebDriver dengan JavaScript, "inject script" merujuk pada kemampuan untuk menyisipkan atau menjalankan skrip JavaScript langsung ke dalam halaman web yang sedang diakses. Tindakan ini memungkinkan eksekusi kode JavaScript di konteks halaman web yang sedang berjalan, memberikan kontrol tambahan kepada pengembang dalam melakukan tindakan-tindakan tertentu yang mungkin tidak dapat dicapai dengan metode bawaan Selenium.
+
+Berikut adalah beberapa contoh situasi di mana "inject script" dapat digunakan:
+
+1. Eksekusi Fungsi JavaScript: 
+Menjalankan fungsi JavaScript yang ada di halaman web.
+
+Contoh:
+    const result = await driver.executeScript("return myFunction()");
+
+2. Manipulasi DOM: 
+Mengubah atau memanipulasi elemen pada halaman web.
+
+Contoh:
+    await driver.executeScript("document.getElementById('myElement').style.color = 'red';");
+
+3. Mengambil Nilai dari Halaman Web: Menangkap nilai atau informasi dari halaman web.
+
+Contoh:
+    const pageTitle = await driver.executeScript("return document.title;");
+
+4. Memodifikasi Atribut Elemen: 
+Mengubah atribut suatu elemen di halaman web.
+
+Contoh:
+    await driver.executeScript("document.getElementById('myElement').setAttribute('class', 'newClass');");
+
+5. Scrolling: 
+Melakukan scroll ke bagian tertentu di halaman web.
+
+Contoh:
+    await driver.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+
+6. Menjalankan Kode Asynchronous: 
+Menjalankan kode JavaScript asynchronous.
+
+Contoh:
+    await driver.executeAsyncScript("var callback = arguments[arguments.length - 1]; setTimeout(function() { callback('Done!'); }, 1000);");
+
+7. Menyembunyikan atau Menampilkan Elemen: 
+Mengatur properti CSS untuk menyembunyikan atau menampilkan elemen.
+
+Contoh:
+    await driver.executeScript("document.getElementById('myElement').style.display = 'none';");
+
+8. Handling Pop-ups atau Alert: 
+Berinteraksi dengan alert atau pop-up di halaman web.
+
+Contoh:
+    await driver.executeScript("alert('Hello, Selenium!');");
+
+Dengan menggunakan kemampuan "inject script" ini, pengembang dapat mengotomatisasi tindakan-tindakan yang lebih kompleks atau spesifik pada halaman web dengan memanfaatkan kekuatan dan fleksibilitas JavaScript.
