@@ -1,0 +1,33 @@
+Pada Selenium menggunakan JavaScript, mengunggah (upload) file pada suatu elemen HTML input file dapat dilakukan dengan menggunakan method sendKeys pada elemen tersebut. Berikut adalah contoh penggunaan Selenium WebDriver untuk mengunggah file:
+
+const { Builder, By } = require("selenium-webdriver");
+
+async function uploadFileExample() {
+  // Membuat instance WebDriver untuk browser Chrome
+  let driver = await new Builder().forBrowser("chrome").build();
+
+  try {
+    // Membuka tab pertama dan navigasi ke halaman yang berisi elemen input file
+    await driver.get("https://www.example.com");
+
+    // Menggunakan XPath atau metode lain untuk menemukan elemen input file
+    let inputFileElement = await driver.findElement(By.xpath("//input[@type='file']"));
+
+    // Memberikan path file yang akan diunggah pada elemen input file
+    await inputFileElement.sendKeys("C:/Path/Ke/File/Anda/example.txt");
+
+    // Menunggu selama beberapa detik (hanya sebagai contoh)
+    await driver.sleep(5000);
+  } catch (error) {
+    // Menangkap kesalahan dan menampilkan pesan kesalahan
+    console.error("Error:", error.message);
+  } finally {
+    // Menutup sesi browser
+    await driver.quit();
+  }
+}
+
+// Memanggil fungsi uploadFileExample untuk menjalankan script
+uploadFileExample();
+
+Dalam contoh ini, kita menggunakan sendKeys pada elemen input file untuk memberikan path file yang akan diunggah. Pastikan path file yang diberikan sesuai dengan path file di sistem Anda. Selain itu, pastikan bahwa elemen input file memiliki atribut type yang benar (biasanya type='file') dan bisa diakses dengan cara yang benar menggunakan metode pencarian Selenium.
